@@ -12,3 +12,4 @@ C:\Users\OFFICE\OneDrive\Desktop\CsharpProjects\ContosoPetsApplication\GuidedPro
 C:\Users\OFFICE\OneDrive\Desktop\CsharpProjects\ContosoPetsApplication\GuidedProject\Starter\obj\Debug\net8.0\Starter.pdb
 C:\Users\OFFICE\OneDrive\Desktop\CsharpProjects\ContosoPetsApplication\GuidedProject\Starter\obj\Debug\net8.0\Starter.genruntimeconfig.cache
 C:\Users\OFFICE\OneDrive\Desktop\CsharpProjects\ContosoPetsApplication\GuidedProject\Starter\obj\Debug\net8.0\ref\Starter.dll
+C:\Users\OFFICE\OneDrive\Desktop\CsharpProjects\ContosoPetsApplication\GuidedProject\Starter\obj\Debug\net8.0\Starter.sourcelink.json
