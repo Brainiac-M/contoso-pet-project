@@ -58,9 +58,9 @@ for (int i = 0; i < maxPets; i++)
             animalSpecies = "cat";
             animalID = "c4";
             animalAge = "?";
-            animalPhysicalDescription = "";
-            animalPersonalityDescription = "";
-            animalNickname = "";
+            animalPhysicalDescription = "tbd";
+            animalPersonalityDescription = "tbd";
+            animalNickname = "tbd";
             break;
 
         default:
@@ -246,7 +246,7 @@ do
             ourAnimals[petCount, 1] = "Species: " + animalSpecies;
             ourAnimals[petCount, 2] = "Age: " + animalAge;
             ourAnimals[petCount, 3] = "Nickname: " + animalNickname;
-            ourAnimals[petCount, 4] = "Physical desciption: " + animalPhysicalDescription;
+            ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
             ourAnimals[petCount, 5] = "Personality: " + animalPersonalityDescription;
 
 
@@ -281,13 +281,137 @@ do
             break;
 
         case "3":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            for (int i = 0; i < maxPets; i++)
+            {
+                // check if animal's age info has been added
+                while (ourAnimals[i, 0] != "ID #: " && ourAnimals[i,2] == "Age: ?")
+                {
+                    //prompt user to input age for the specific pet without age defined
+                    Console.WriteLine($"Enter an age for {ourAnimals[i,0]}");
+
+                    validEntry = false;
+                    do
+                    {
+                        int petAge;
+
+                        // recieve user's input for Pet's age
+                        Console.WriteLine("Enter numeric values for the Animal's age, in integer format such as 1,2,3... and so on");
+                        readResult = Console.ReadLine();
+
+                        if(readResult != null)
+                        {
+                            animalAge = readResult;
+
+                            if(animalAge != "?")
+                            {
+                                // Enforce the following validation rules for animalAge
+                                validEntry = int.TryParse(animalAge, out petAge);
+                                ourAnimals[i, 2] = "Age: " + petAge;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                            }
+                        }
+                    }while(validEntry == false);
+                }
+            
+                // check if animal's physical desciption info has been added
+                while (ourAnimals[i, 0] != "ID #: " && ourAnimals[i,4] == "Physical description: tbd" )
+                {
+                    validEntry = false;
+                    do
+                    {
+                        // recieve user's input for Pet's physical desciption
+                        Console.WriteLine($"Enter a physical description for {ourAnimals[i,0]} (size, color, breed, gender, weight, housebroken)");
+                        readResult = Console.ReadLine();
+
+                        if(readResult != null)
+                        {
+                            animalPhysicalDescription = readResult;
+
+                            if(animalPhysicalDescription != "")
+                            {
+                                // Enforce the following validation rules for Pet's physical desciption
+                                validEntry = true;
+                                ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                            }
+                        }
+                    }while(validEntry == false);
+                }
+
+            }
+
+            Console.WriteLine("Age and physical description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "4":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            for (int i = 0; i < maxPets; i++)
+                {
+                    // check if animal's nickname info has been added
+                    while (ourAnimals[i, 0] != "ID #: " && ourAnimals[i,3] == "Nickname: tbd")
+                    {
+                        validEntry = false;
+                        do
+                        {
+                            // recieve user's input for Pet's nickname
+                            Console.WriteLine($"Enter a nickname for {ourAnimals[i,0]}");
+                            readResult = Console.ReadLine();
+
+                            if(readResult != null)
+                            {
+                                animalNickname = readResult;
+
+                                if(animalNickname != "")
+                                {
+                                    // Enforce the following validation rules for Pet's nickname
+                                    validEntry = true;
+                                    ourAnimals[i, 3] = "Nickname: " + animalNickname;
+                                }
+                                else
+                                {
+                                    validEntry = false;
+                                }
+                            }
+                        }while(validEntry == false);
+                    }
+                
+                    // check if animal's personality info has been added
+                    while (ourAnimals[i, 0] != "ID #: " && ourAnimals[i,5] == "Personality: tbd" )
+                    {
+                        validEntry = false;
+                        do
+                        {
+                            // recieve user's input for Pet's personality
+                            Console.WriteLine($"Enter a personality description for {ourAnimals[i,0]} (likes or dislikes, tricks, energy level)");
+                            readResult = Console.ReadLine();
+
+                            if(readResult != null)
+                            {
+                                animalPersonalityDescription = readResult;
+
+                                if(animalPersonalityDescription != "")
+                                {
+                                    // Enforce the following validation rules for Pet's personality
+                                    validEntry = true;
+                                    ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+                                }
+                                else
+                                {
+                                    validEntry = false;
+                                }
+                            }
+                        }while(validEntry == false);
+                    }
+                }
+
+            Console.WriteLine("Nickname and personality description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
